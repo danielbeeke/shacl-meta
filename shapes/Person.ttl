@@ -23,6 +23,7 @@ self:Philosopher
             ]
 			[
                 sh:datatype rdf:langString ; 
+                sh:languageIn ( "en" "nl" ) ;
                 sh:minCount 1 ;
             ]
 		) ;
@@ -30,6 +31,7 @@ self:Philosopher
 
     sh:property [
         sh:path dbo:thumbnail ;
+        sh:hasValue dbo:example ;
         shm:alias dbp:thumbnail ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
@@ -37,12 +39,14 @@ self:Philosopher
 
     sh:property [
         sh:path rdf:type ;
+        sh:in ( dbo:Person foaf:Person ) ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
 
     sh:property [
         sh:path dbp:birthPlace ;
+        sh:nodeKind sh:IRI ;
         sh:node self:Location ;
     ] ;
 
