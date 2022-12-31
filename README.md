@@ -15,3 +15,11 @@ https://github.com/danielbeeke/shaclToType
 This attempt is less clean, it mushes together all these concepts into one module.
 In this attempt I want to create separate modules. 
 Ofcourse some thight coupling happens because of the needed metadata properties.
+
+## Tests
+
+You can run the tests with:
+
+```
+deno test --watch --allow-all mod_test.ts
+```

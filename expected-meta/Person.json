@@ -1,0 +1,75 @@
+{
+    "https://self.com/Philosopher": [
+      {
+        "or": {
+          "max": [
+            1
+          ],
+          "dataType": [
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+          ],
+          "required": [
+            true
+          ],
+          "min": [
+            1
+          ]
+        },
+        "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+        "singular": false,
+        "multiple": true
+      },
+      {
+        "required": true,
+        "min": 1,
+        "max": 1,
+        "alias": "http://dbpedia.org/property/thumbnail",
+        "predicate": "http://dbpedia.org/ontology/thumbnail",
+        "singular": true,
+        "multiple": false
+      },
+      {
+        "required": true,
+        "min": 1,
+        "max": 1,
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "singular": true,
+        "multiple": false
+      },
+      {
+        "nodeType": "https://self.com/Location",
+        "predicate": "http://dbpedia.org/property/birthPlace",
+        "singular": false,
+        "multiple": true
+      },
+      {
+        "max": 1,
+        "dataType": "http://www.w3.org/2001/XMLSchema#date",
+        "predicate": "http://dbpedia.org/property/birthDate",
+        "singular": false,
+        "multiple": true
+      }
+    ],
+    "https://self.com/Location": [
+      {
+        "required": true,
+        "min": 1,
+        "max": 1,
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "singular": true,
+        "multiple": false
+      },
+      {
+        "required": true,
+        "min": 1,
+        "max": 1,
+        "alias": "http://www.w3.org/2000/01/rdf-schema#label",
+        "dataType": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+        "predicate": "http://xmlns.com/foaf/0.1/name",
+        "singular": true,
+        "multiple": false
+      }
+    ]
+  }
+  
