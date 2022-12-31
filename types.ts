@@ -15,3 +15,8 @@ export type ShaclProperty = {
 
 export type AttributeHandlers = { [key: string]: (singular: Resource, plural: Array<Resource>) => any } 
 export type PostHandlers = { [key: string]: (property: { [key: string]: string }) => any } 
+
+export type ParserOutput = { [key: string]: { 
+    properties: Array<ShaclProperty> 
+    attributes: { [key: string]: any }
+} }

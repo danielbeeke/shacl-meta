@@ -12,8 +12,9 @@ import node from './attributeHandlers/sh:node.ts'
 import or from './attributeHandlers/sh:or.ts'
 import path from './attributeHandlers/sh:path.ts'
 import property from './attributeHandlers/sh:property.ts'
+import targetClass from './attributeHandlers/sh:targetClass.ts'
 
-export default {
+export const propertyAttributes = {
     'sh:closed': closed,
     'sh:datatype': datatype,
     'sh:hasValue': hasValue,
@@ -28,4 +29,8 @@ export default {
     'sh:or': or,
     'sh:path': path,
     'sh:property': property
+}
+
+export const classAttributes = {
+    'sh:targetClass': targetClass
 }

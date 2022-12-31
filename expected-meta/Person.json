@@ -1,85 +1,95 @@
 {
-    "https://self.com/Philosopher": [
-      {
-        "or": [
-          {
-            "dataType": "http://www.w3.org/2001/XMLSchema#string",
-            "max": 1,
-            "singular": false,
-            "multiple": true    
-          },
-          {
-            "dataType": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
-            "languageIn": [
-              "en",
-              "nl"
-            ],
-            "min": 1,
-            "required": true,
-            "singular": false,
-            "multiple": true    
-          }
-        ],
-        "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
-        "singular": false,
-        "multiple": true
+    "https://self.com/Philosopher": {
+      "attributes": {
+          "targetClass": "http://dbpedia.org/ontology/Person"
       },
-      {
-        "required": true,
-        "min": 1,
-        "max": 1,
-        "alias": "http://dbpedia.org/property/thumbnail",
-        "hasValue": "http://dbpedia.org/ontology/example",
-        "predicate": "http://dbpedia.org/ontology/thumbnail",
-        "singular": true,
-        "multiple": false
+      "properties": [
+        {
+          "or": [
+            {
+              "dataType": "http://www.w3.org/2001/XMLSchema#string",
+              "max": 1,
+              "singular": true,
+              "multiple": false    
+            },
+            {
+              "dataType": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+              "languageIn": [
+                "en",
+                "nl"
+              ],
+              "min": 1,
+              "required": true,
+              "singular": false,
+              "multiple": true    
+            }
+          ],
+          "predicate": "http://www.w3.org/2000/01/rdf-schema#label",
+          "singular": false,
+          "multiple": true
+        },
+        {
+          "required": true,
+          "min": 1,
+          "max": 1,
+          "alias": "http://dbpedia.org/property/thumbnail",
+          "hasValue": "http://dbpedia.org/ontology/example",
+          "predicate": "http://dbpedia.org/ontology/thumbnail",
+          "singular": true,
+          "multiple": false
+        },
+        {
+          "in": [
+            "http://dbpedia.org/ontology/Person",
+            "http://xmlns.com/foaf/0.1/Person"
+          ],
+          "required": true,
+          "min": 1,
+          "max": 1,
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "singular": true,
+          "multiple": false
+        },
+        {
+          "nodeType": "https://self.com/Location",
+          "predicate": "http://dbpedia.org/property/birthPlace",
+          "nodeKind": "http://www.w3.org/ns/shacl#IRI",
+          "singular": false,
+          "multiple": true
+        },
+        {
+          "max": 1,
+          "dataType": "http://www.w3.org/2001/XMLSchema#date",
+          "predicate": "http://dbpedia.org/property/birthDate",
+          "singular": true,
+          "multiple": false
+        }
+      ]
+    },
+    "https://self.com/Location": {
+      "attributes": {
+          "targetClass": "http://dbpedia.org/ontology/Location"
       },
-      {
-        "in": [
-          "http://dbpedia.org/ontology/Person",
-          "http://xmlns.com/foaf/0.1/Person"
-        ],
-        "required": true,
-        "min": 1,
-        "max": 1,
-        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-        "singular": true,
-        "multiple": false
-      },
-      {
-        "nodeType": "https://self.com/Location",
-        "predicate": "http://dbpedia.org/property/birthPlace",
-        "nodeKind": "http://www.w3.org/ns/shacl#IRI",
-        "singular": false,
-        "multiple": true
-      },
-      {
-        "max": 1,
-        "dataType": "http://www.w3.org/2001/XMLSchema#date",
-        "predicate": "http://dbpedia.org/property/birthDate",
-        "singular": false,
-        "multiple": true
-      }
-    ],
-    "https://self.com/Location": [
-      {
-        "required": true,
-        "min": 1,
-        "max": 1,
-        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-        "singular": true,
-        "multiple": false
-      },
-      {
-        "required": true,
-        "min": 1,
-        "max": 1,
-        "alias": "http://www.w3.org/2000/01/rdf-schema#label",
-        "dataType": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
-        "predicate": "http://xmlns.com/foaf/0.1/name",
-        "singular": true,
-        "multiple": false
-      }
-    ]
+      "properties": [
+        {
+          "required": true,
+          "min": 1,
+          "max": 1,
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "singular": true,
+          "multiple": false
+        },
+        {
+          "required": true,
+          "min": 1,
+          "max": 1,
+          "alias": "http://www.w3.org/2000/01/rdf-schema#label",
+          "dataType": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+          "predicate": "http://xmlns.com/foaf/0.1/name",
+          "singular": true,
+          "multiple": false
+        }
+      ]
+    }
   }
   
