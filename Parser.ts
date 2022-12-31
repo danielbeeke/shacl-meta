@@ -1,5 +1,7 @@
 import { ShaclParserInterface, AttributeHandlers, PostHandlers, Options, ShaclProperty } from './types.ts'
 import { N3Parser, RdfObjectLoader, Resource } from './deps.ts'
+import attributeHandlers from './attributeHandlers.ts'
+import postHandlers from './postHandlers.ts'
 
 export class Parser {
 
@@ -12,25 +14,11 @@ export class Parser {
     }
 
     /**
-     * Loads the handlers from a folder.
-     */
-    async loadHandlers (folder: string) {
-        const handlers: { [key: string]: any } = {}
-        const handlerFiles = Deno.readDir(`./${folder}`)
-        for await (const handlerFile of handlerFiles) {
-            const label = handlerFile.name.replace('.ts', '')
-            handlers[label] = (await import(`./${folder}/${handlerFile.name}`)).default
-        }
-
-        return handlers
-    }
-
-    /**
      * Parsing of the SHACL string into Quads and then into the SHACL properties
      */
     async parse (shaclTurtleString: string): Promise<{ [key: string]: Array<ShaclProperty> }> {
-        this.attributeHandlers = await this.loadHandlers('attributeHandlers')
-        this.postHandlers = await this.loadHandlers('postHandlers')
+        this.attributeHandlers = attributeHandlers
+        this.postHandlers = postHandlers
 
         const quads = this.shaclParser.parse(shaclTurtleString)
         const context = { ...this.shaclParser._prefixes }

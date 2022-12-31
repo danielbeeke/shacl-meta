@@ -13,5 +13,5 @@ export type ShaclProperty = {
     [key: string]: string | number | boolean
 }
 
-export type AttributeHandlers = { [key: string]: (singular: Resource, plural: Array<Resource>) => Record<string | number | symbol, never> } 
-export type PostHandlers = { [key: string]: (property: { [key: string]: string }) => Record<string | number | symbol, never> } 
+export type AttributeHandlers = { [key: string]: (singular: Resource, plural: Array<Resource>) => any } 
+export type PostHandlers = { [key: string]: (property: { [key: string]: string }) => any } 
