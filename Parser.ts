@@ -23,8 +23,8 @@ export class Parser {
         const shaclProperties: ParserOutput = {}
 
         for (const [iri, resource] of Object.entries(objectLoader.resources)) {
-            const targetClass = resource.property['sh:targetClass']?.term?.value
-            if (!targetClass) continue
+            const isNodeShape = resource.property['http://www.w3.org/1999/02/22-rdf-syntax-ns#type']?.term?.value === 'http://www.w3.org/ns/shacl#NodeShape'
+            if (!isNodeShape) continue
 
             const shaclClassAttributes = this.processProperty(resource, classAttributes, {})
 

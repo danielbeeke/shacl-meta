@@ -1,7 +1,7 @@
-import { Resource, Quad } from './deps.ts'
+import { Resource } from './deps.ts'
 
 export interface ShaclParserInterface {
-    parse (shaclString: string): Array<Quad>
+    parse (shaclString: string): Array<any>
     _prefixes?: { [key: string]: string }
 }
 

@@ -8,3 +8,11 @@ Deno.test('Output of Parser', async () => {
     const expected = JSON.parse(Deno.readTextFileSync('./expected-meta/Person.json'))
     assertEquals(shacl, expected)
 })
+
+Deno.test('Output of Parser', async () => {
+    const turtle = Deno.readTextFileSync('./shapes/ViewMode.ttl')
+    const shaclParser = new Parser()
+    const shacl = await shaclParser.parse(turtle)
+
+    console.log(shacl)
+})
