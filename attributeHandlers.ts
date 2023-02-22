@@ -13,6 +13,7 @@ import or from './attributeHandlers/sh:or.ts'
 import path from './attributeHandlers/sh:path.ts'
 import property from './attributeHandlers/sh:property.ts'
 import targetClass from './attributeHandlers/sh:targetClass.ts'
+import expandAll from './attributeHandlers/shm:expandAll.ts'
 
 export const propertyAttributes = {
     'sh:closed': closed,
@@ -22,6 +23,7 @@ export const propertyAttributes = {
     'sh:in': inHandler,
     'sh:languageIn': languageIn,
     'shm:alias': alias,
+    'shm:expandAll': expandAll,
     'sh:maxCount': maxCount,
     'sh:minCount': minCount,
     'sh:nodeKind': nodeKind,

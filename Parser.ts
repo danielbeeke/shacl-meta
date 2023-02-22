@@ -15,8 +15,9 @@ export class Parser {
      * Parsing of the SHACL string into Quads and then into the SHACL properties
      */
     async parse (shaclTurtleString: string): Promise<ParserOutput> {
-        const quads = this.shaclParser.parse(shaclTurtleString)
-        const context = { ...this.shaclParser._prefixes }
+        const quads = await this.shaclParser.parse(shaclTurtleString)
+        const context = { ...this.shaclParser._prefixes, sh: 'http://www.w3.org/ns/shacl#' }
+
         const objectLoader = new RdfObjectLoader({ context })
         await objectLoader.importArray(quads)
 
@@ -24,6 +25,7 @@ export class Parser {
 
         for (const [iri, resource] of Object.entries(objectLoader.resources)) {
             const isNodeShape = resource.property['http://www.w3.org/1999/02/22-rdf-syntax-ns#type']?.term?.value === 'http://www.w3.org/ns/shacl#NodeShape'
+
             if (!isNodeShape) continue
 
             const shaclClassAttributes = this.processProperty(resource, classAttributes, {})
